@@ -1,0 +1,20 @@
+{
+  "name": "inventory-management",
+  "version": "1.0.0",
+  "description": "Inventory Management app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-validator": "^7.2.0",
+    "pg": "^8.12.0"
+  }
+}
