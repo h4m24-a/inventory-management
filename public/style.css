@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  background-color: #181a19;
+  width: 310px;
+  height: 100vh;
+  padding-top: 10px; /* Adjust padding as needed */
+}
+
+.sidebar a {
+  text-decoration: none;
+  display: flex;
+  padding: 18px;
+  color: #7a7979;
+  font-size: 22px;
+  justify-content: flex-start;
+  align-items: center;
+  transition: margin 0.4s;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar a i {
+  padding-right: 16px;
+  display: flex;
+}
+
+.sidebar .brand {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: 'Rubik', sans-serif;
+  text-transform: lowercase;
+  color: #bebaba;
+}
+
+.sidebar .content {
+  margin-top: 10px;
+}
+
+.content :hover {
+  background-color: #282828;
+  color: #fff;
+}
+
+.h_line {
+  border-bottom: 3px solid rgb(80, 80, 78);
+  width: 310px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+
+.title, .sub-title {
+  font-family: 'Poppins', system-ui, -apple-system;
+  text-align: center;
+}
+
+
+.container {
+  max-width: 1550px; /* Set maximum width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Add padding as needed */
+  flex: 1; /* Take up the remaining space */
+}

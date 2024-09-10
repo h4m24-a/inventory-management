@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Home Page</title>
+</head>
+<body>
+   <div class="wrapper">
+     <%- include('partials/navbar') %>
+     <div class="container">
+       <h1 class="title">Welcome to the Sneaker inventory management app!</h1>
+       <h2 class="sub-title">Track, manage, and grow your sneaker collection effortlessly</h2>
+       <div class="categories-container">
+        <p>Select Category</p>
+         <ul>
+           <% categories.forEach(category => { %>
+           <li>
+             <p><%= category.name %></p>
+           </li>
+           <% }); %>
+         </ul>
+       </div>
+     </div>
+
+   </div>
+</body>
+</html>
