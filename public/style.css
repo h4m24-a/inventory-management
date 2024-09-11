@@ -27,7 +27,7 @@
   display: flex;
   padding: 18px;
   color: #7a7979;
-  font-size: 22px;
+  font-size: 20px;
   justify-content: flex-start;
   align-items: center;
   transition: margin 0.4s;
@@ -65,15 +65,72 @@
 }
 
 
-.title, .sub-title {
+.title {
   font-family: 'Poppins', system-ui, -apple-system;
   text-align: center;
+  background-color: white;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.sub-title {
+  font-family: 'Poppins', system-ui, -apple-system;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 28px;
+  opacity: 0.5;
+  font-weight: 500;
 }
 
 
+
 .container {
-  max-width: 1550px; /* Set maximum width */
+  max-width: 1600px; /* Set maximum width */
   margin: 0 auto; /* Center horizontally */
   padding: 20px; /* Add padding as needed */
   flex: 1; /* Take up the remaining space */
+  background-color: ghostwhite;
+}
+
+
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* automatically fill the grid container with as many columns as can fit,   250px is the minimum size for each column. */  
+  justify-items: center;
+  align-content: center;
+  margin-top: 2rem; 
+  column-gap: 12px;
+  grid-auto-flow: row;
+}
+
+
+.category-card {
+  display: grid;
+  padding: 8px;
+  justify-items: center;
+  background-color: white;
+  max-width: 100%;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 3px;
+}
+
+.category-card p {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  font-family: 'Rubik', system-ui, -apple-system;
+}
+
+.category-image {
+  object-fit: cover; 
+  object-position: center; 
+  width: 100%; 
+  max-width: 100%; 
+  height: 90%;
 }

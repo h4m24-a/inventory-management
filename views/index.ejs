@@ -10,17 +10,21 @@
    <div class="wrapper">
      <%- include('partials/navbar') %>
      <div class="container">
-       <h1 class="title">Welcome to the Sneaker inventory management app!</h1>
-       <h2 class="sub-title">Track, manage, and grow your sneaker collection effortlessly</h2>
-       <div class="categories-container">
-        <p>Select Category</p>
-         <ul>
+       <p class="title">Track, manage, and grow your sneaker collection effortlessly</p>
+       
+        <p class="sub-title">Select  Category</p>
+           <div class="categories-container">
            <% categories.forEach(category => { %>
-           <li>
-             <p><%= category.name %></p>
-           </li>
+            <div class="category-card">
+              <p><%= category.name %></p>
+              <a href="/categories/<%= category.id %>">
+                <img class="category-image" src="/images/categories/<%= category.image_filename %>"  alt="<%= category.name %>"> </a>
+              <p>Number of sneakers: 1</p>
+            </div>
+           
+           
            <% }); %>
-         </ul>
+         
        </div>
      </div>
 

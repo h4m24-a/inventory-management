@@ -5,7 +5,7 @@ async function getCategories(req, res) {
   try {
     const categories = await db.getAllCategories();
     console.log(categories)
-    res.render('index', {     // res.render defaults status code to 200
+    res.render('index', {     
       categories : categories 
     });
   } catch (error) {
