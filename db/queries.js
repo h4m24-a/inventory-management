@@ -20,7 +20,7 @@ return rows end the functions and returns the values.
 
 
 // Insert a new category
-async function insertCategories(name) {
+async function insertCategory(name) {
   try {
     await pool.query('INSERT INTO categories (name) VALUES ($1)', [name]);
   } catch (error) {
@@ -43,13 +43,25 @@ async function selectCategory(id) {
 
 
 // Update category
-async function updateCategories(name, id) {
+async function updateCategory(name, id) {
   try {
-    await pool.query('UPDATE categories SET name = $1 WHERE id = $2', [name, id])
+    await pool.query('UPDATE categories SET name = $1 WHERE id = $2', [name, id]);
+  } catch (error) {
+    console.error('An error occurred during query', error)
+    throw error
+  }
+}
+
+
+
+// Delete category
+async function deleteCategory(id) {
+  try {
+    await pool.query('DELETE FROM categories WHERE id = $1', [id]);       // deletes a record using the id of the selected category.
     
   } catch (error) {
-    console.log('An error occurred during query', error)
-    throw error
+    console.error('An error occurred during the query', error);
+    throw error;
   }
   
 }
@@ -57,7 +69,8 @@ async function updateCategories(name, id) {
 
 module.exports = {
   getAllCategories,
-  insertCategories,
+  insertCategory,
   selectCategory,
-  updateCategories
+  updateCategory,
+  deleteCategory
 }

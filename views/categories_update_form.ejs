@@ -11,7 +11,7 @@
      <%- include('partials/navbar') %>
      <div class="container">
        <div class="form-container">
-         <form class="form" method="POST" action="/categories/update/category.id">
+         <form class="form" method="POST" action="/categories/update/<%= category.id %>">
            <label class="input-group"  for="categoryName">name</label>
            <input id="categoryName" type="text" name="categoryName"  value="<%= category.name %>"maxlength="20" required />
        

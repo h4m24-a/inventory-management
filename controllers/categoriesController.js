@@ -1,3 +1,4 @@
+const { parse } = require('path');
 const db = require('../db/queries');
 
 //  function to display all categories
@@ -30,7 +31,7 @@ async function createCategoryGet(req, res) {
 async function createCategoryPost(req, res) {
   try {
     const categoryName = req.body.categoryName; // getting value of categoryName of form
-    await db.insertCategories(categoryName);
+    await db.insertCategory(categoryName);
     res.redirect(302, '/');
   } catch (error) {
     console.error('Error adding new category', error);
@@ -39,11 +40,11 @@ async function createCategoryPost(req, res) {
 }
 
 
-// function to display update form using name and id
+// function to render update form using name and id
 async function updateCategoryGet(req, res) {
   try {
-    const categoriesId = req.params.id          // extracting id from url
-    const id = parseInt(categoriesId, 10);      // string to integer
+    const categoryId = req.params.id          // extracting id from url
+    const id = parseInt(categoryId, 10);      // string to integer
 
     const category = await db.selectCategory(id); // data of selected category
 
@@ -52,14 +53,52 @@ async function updateCategoryGet(req, res) {
     });
   
   } catch (error) {
-    console.log('Error displaying update form', error);
+    console.error('Error displaying update form', error);
+    res.status(500).send('Server Error')
+  }
+}
+
+
+
+// function to update a category
+async function updateCategoryPost(req, res) {
+  try {
+    const categoryId = req.params.id;
+    const id = parseInt(categoryId, 10);
+    const categoryName = req.body.categoryName;
+
+    await db.updateCategory(categoryName, id);
+    res.redirect(302, '/');
+
+  } catch (error) {
+    console.error('Error updating category', error)
+    res.status(500).send('Server Error')
+  }
+}
+
+
+
+// function to delete a category
+async function deleteCategoryPost(req, res) {
+  try {
+    const categoryId = req.params.id;
+    const id = parseInt(categoryId, 10);
+
+    await db.deleteCategory(id);
+    res.redirect(302, '/')
+
+  } catch (error) {
+    console.error('Error deleting category', error);
     res.status(500).send('Server Error')
   }
   
 }
 
+
 module.exports = {
   createCategoryGet,
   createCategoryPost,
-  updateCategoryGet
+  updateCategoryGet,
+  updateCategoryPost,
+  deleteCategoryPost
 }
