@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Category</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%- include('partials/navbar') %>
+      <div class="container">
+        <p class="title">Select Category</p>
+        <div class="categories-container">
+          <% categories.forEach(category => { %>
+          <div class="category-card">
+            <p><%= category.name %></p>
+            <a href="/categories/<%= category.id %>">
+              <img
+                class="category-image"
+                src="/images/categories/<%= category.image_filename %>"
+                alt="<%= category.name %>"
+              />
+            </a>
+          </div>
+
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
