@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Update Category</title>
+</head>
+<body>
+   <div class="wrapper">
+     <%- include('partials/navbar') %>
+     <div class="container">
+       <div class="form-container">
+         <form class="form" method="POST" action="/categories/update/category.id">
+           <label class="input-group"  for="categoryName">name</label>
+           <input id="categoryName" type="text" name="categoryName"  value="<%= category.name %>"maxlength="20" required />
+       
+           <button class="" type="submit">Update Category</button>
+           <a class="" href="/">View Categories!</a>
+         </form>
+       </div>
+
+     </div>
+
+   </div>
+</body>
+</html>
+  

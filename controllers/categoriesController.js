@@ -31,14 +31,35 @@ async function createCategoryPost(req, res) {
   try {
     const categoryName = req.body.categoryName; // getting value of categoryName of form
     await db.insertCategories(categoryName);
-    res.redirect('/')
+    res.redirect(302, '/');
   } catch (error) {
     console.error('Error adding new category', error);
     res.status(500).send('Server Error')
   }
 }
 
+
+// function to display update form using name and id
+async function updateCategoryGet(req, res) {
+  try {
+    const categoriesId = req.params.id          // extracting id from url
+    const id = parseInt(categoriesId, 10);      // string to integer
+
+    const category = await db.selectCategory(id); // data of selected category
+
+    res.render('categories_update_form', {
+      category: category
+    });
+  
+  } catch (error) {
+    console.log('Error displaying update form', error);
+    res.status(500).send('Server Error')
+  }
+  
+}
+
 module.exports = {
   createCategoryGet,
-  createCategoryPost
+  createCategoryPost,
+  updateCategoryGet
 }

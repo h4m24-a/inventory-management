@@ -30,7 +30,34 @@ async function insertCategories(name) {
 }
 
 
+// Get a category
+async function selectCategory(id) {
+  try {
+    const result = await pool.query('SELECT * FROM categories WHERE id = $1', [id]);
+    return result.rows[0];
+  } catch (error) {
+    console.error('An error occurred during query', error)
+    throw error
+  }
+}
+
+
+// Update category
+async function updateCategories(name, id) {
+  try {
+    await pool.query('UPDATE categories SET name = $1 WHERE id = $2', [name, id])
+    
+  } catch (error) {
+    console.log('An error occurred during query', error)
+    throw error
+  }
+  
+}
+
+
 module.exports = {
   getAllCategories,
-  insertCategories
+  insertCategories,
+  selectCategory,
+  updateCategories
 }
