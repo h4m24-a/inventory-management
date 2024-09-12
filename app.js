@@ -8,6 +8,8 @@ const app = express();
 
 // Routers
 let indexRouter = require('./routes/index');
+let categoriesRouter = require('./routes/categoriesRouter');
+let itemsRouter = require('./routes/itemsRouter');
 
 
 // Body parser middleware
@@ -17,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));  // takes in an object - replic
 
 
 // serve static files
-app.use(express.static(path.join(__dirname, 'public')));    // 'public' is our static folder.
+app.use(express.static('public'));    // 'public' is our static folder.
 
 
 //  There are two parts to setting up the engine. First, we set the 'views' value to specify the folder where the templates will be stored (in this case the subfolder /views). 
@@ -31,7 +33,8 @@ app.set('view engine', 'ejs')
 
 // Adding route-handling code to the request handling chain. This will define particular routes for the different parts of the site
 app.use('/', indexRouter);
-
+app.use('/categories', categoriesRouter);
+// app.use('/items', itemsRouter);
 
 
 app.listen(3000, () => {

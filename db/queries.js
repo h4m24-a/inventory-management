@@ -13,11 +13,24 @@ async function getAllCategories() {
 
 /*
 The result of the query is destructured to get the rows property, which contains the actual data returned by the query.
-
 return rows end the functions and returns the values.
 */
 
 
+
+
+// Insert a new category
+async function insertCategories(name) {
+  try {
+    await pool.query('INSERT INTO categories (name) VALUES ($1)', [name]);
+  } catch (error) {
+    console.error('An error occurred during query', error)
+    throw error;
+  }
+}
+
+
 module.exports = {
   getAllCategories,
+  insertCategories
 }
