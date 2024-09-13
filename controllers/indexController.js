@@ -4,7 +4,6 @@ const db = require('../db/queries');
 async function getCategories(req, res) {
   try {
     const categories = await db.getAllCategories();
-    console.log(categories)
     res.render('index', {     
       categories : categories 
     });
