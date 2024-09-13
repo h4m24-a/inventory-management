@@ -1,18 +1,17 @@
 const db = require('../db/queries');
 
 //  function to display all categories
-async function getCategories(req, res) {
-  try {
-    const categories = await db.getAllCategories();
-    res.render('categories', {     
-      categories : categories 
-    });
-  } catch (error) {
-    console.error('Error fetching categories', error);
-    res.status(500).send('Server Error');
-  }
-}
-
+// async function getCategories(req, res) {
+//   try {
+//     const categories = await db.getAllCategories();
+//     res.render('categories', {     
+//       categories : categories 
+//     });
+//   } catch (error) {
+//     console.error('Error fetching categories', error);
+//     res.status(500).send('Server Error');
+//   }
+// }
 
 // function to display category form
 async function createCategoryGet(req, res) {
@@ -94,7 +93,7 @@ async function deleteCategoryPost(req, res) {
 
 
 module.exports = {
-  getCategories,
+  // getCategories,
   createCategoryGet,
   createCategoryPost,
   updateCategoryGet,
