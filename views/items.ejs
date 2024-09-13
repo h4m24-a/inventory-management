@@ -10,13 +10,31 @@
     <div class="wrapper">
       <%- include('partials/navbar') %>
       <div class="container">
-        <p class="title">All Items</p>
+        <p class="title-items">All Items</p>
         <div class="items-container">
+          <div class="items-header">
+            <p>ID</p>
+            <p>Name</p>
+            <p>Price</p>
+            <p>Category</p>
+            <p>Size</p>
+            <p>Action</p>
+          </div>
           <% items.forEach(item => { %>
-          <div class="category-card">
+          <div class="items-card">
+            <p><%= item.id %></p>
             <p><%= item.name %></p>
             <p><%= item.price %></p>
+            <p class="category-name"><%= item.category_name %></p>
             <p><%= item.size %></p>
+            <div class="item-icons">
+              <a href="" aria-label="Update">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </a>
+              <a href="" aria-label="Delete">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </div>
           </div>
           <% }); %>
         </div>
