@@ -73,13 +73,18 @@ async function deleteCategory(id) {
 // Get all items
 async function getAllItems() {
   try {
-    const { rows } = await pool.query('SELECT * FROM items');   // result of the pool.query() call is being destructured meaning that that the pool.query() method returns an object.
-    return rows                                                 // this object has a property called rows. By using destructuring, we directly extract the rows property into the rows variable.
+    const { rows } = await pool.query(`
+                                      SELECT items.id, items.name, items.price, items.size, categories.name AS category_name
+                                      FROM items
+                                      JOIN categories 
+                                      ON items.category_id = categories.id
+                                      `);
+
+    return rows                                               
   } catch (error) {
     console.error('An error occurred during the query', error);
     throw error
   }
-  
 }
 
 
