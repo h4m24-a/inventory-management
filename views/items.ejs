@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Items</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%- include('partials/navbar') %>
+      <div class="container">
+        <p class="title">Select Category</p>
+        <div class="items-container">
+          <% items.forEach(item => { %>
+          <div class="category-card">
+            <p><%= item.name %></p>
+            <p><%= item.price %></p>
+            <p><%= item.size %></p>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
