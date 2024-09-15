@@ -17,7 +17,7 @@
            <% categories.forEach(category => { %>
             <div class="category-card">
               <p><%= category.name %></p>
-              <a href="/categories/<%= category.id %>">
+              <a href="/categories/<%= category.id %>/items">
                 <img class="category-image" src="/images/categories/<%= category.image_filename %>"  alt="<%= category.name %>"> </a>
               
               <form action="categories/delete/<%= category.id %>" method="POST">
