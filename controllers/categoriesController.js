@@ -96,9 +96,9 @@ async function deleteCategoryPost(req, res) {
 // function to view items per category
 async function ItemsByCategoriesGet(req, res) {
   try {
-    const categoryId = parseInt(req.params.id, 10);
+    const categoryId = parseInt(req.params.id, 10);   // extracting id of category from url and converting it from a string to integer.
 
-    const items = await db.itemsByCategory(categoryId);
+    const items = await db.itemsByCategory(categoryId);   // calling the function to display all items by categoryid and passing in categoryid.
 
     // Check if category has any items
     if (items.length === 0) {
