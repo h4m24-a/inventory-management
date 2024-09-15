@@ -175,7 +175,7 @@
   padding: 10px;
   margin: 5px 0; /* Vertical margin between cards */
   width: 100%; /* Full width of container */
-  align-items: center;
+  align-items: start;
   box-sizing: border-box; /* Include padding and border in total width and height */
 }
 
