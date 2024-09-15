@@ -30,7 +30,7 @@ async function insertCategory(name) {
 }
 
 
-// Get a category
+// Get a specific category
 async function selectCategory(id) {
   try {
     const result = await pool.query('SELECT * FROM categories WHERE id = $1', [id]);
@@ -78,6 +78,7 @@ async function getAllItems() {
                                       FROM items
                                       JOIN categories 
                                       ON items.category_id = categories.id
+                                      ORDER BY category_name, items.id
                                       `);
 
     return rows                                               
@@ -93,12 +94,50 @@ async function getAllItems() {
 
 
 
+// Get a  specific Item
+async function selectItem(id) {
+  try {
+    const result = await pool.query('SELECT * FROM items WHERE id = $1', [id]);
+    return result.rows[0];
+    
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+}
+
+
+
+
 // Update item
 
 
 
 // Delete item from a category
 
+
+
+
+
+
+
+
+
+async function itemsByCategory(categoryId) {    // dynamically returning items of category using id extracted from url when selecting a category.
+  try {
+    const { rows } = await pool.query(`
+                                        SELECT items.id, items.name, items.price, items.size, categories.name AS category_name
+                                        FROM items
+                                        JOIN categories ON items.category_id = categories.id
+                                        WHERE categories.id = $1
+                                      `, [categoryId]);
+
+    return rows;
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error;
+  }
+}
 
 
 
@@ -125,5 +164,7 @@ module.exports = {
   selectCategory,
   updateCategory,
   deleteCategory,
-  getAllItems
+  getAllItems,
+  selectItem,
+  itemsByCategory
 }

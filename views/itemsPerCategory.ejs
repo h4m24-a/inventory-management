@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title> <%= category.name %></title>
+</head>
+<body>
+  <div class="wrapper">
+    <%- include('partials/navbar') %>
+    <div class="container">
+      <h1><%= category.name %></h1>
+      <div class="items-container">
+        <% if (items.length > 0) { %>
+          <% items.forEach(item => { %>
+            <div class="item-card">
+              <h2><%= item.name %></h2>
+              <p>Price: $<%= item.price %></p>
+              <p>Size: <%= item.size %></p>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p><%= message %>.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

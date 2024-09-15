@@ -10,7 +10,8 @@ router.get('/update/:id', categoriesController.updateCategoryGet);           // 
 router.post('/update/:id', categoriesController.updateCategoryPost);         // updates category
 router.post('/delete/:id', categoriesController.deleteCategoryPost )         // deletes category
 
-// router.get('/:id/items', categoriesController.getItemsByCategories)       // display items in a specific category
+router.get('/:id/items', categoriesController.ItemsByCategoriesGet);
+
 
 
 
