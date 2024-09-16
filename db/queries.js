@@ -1,6 +1,9 @@
 const pool = require("./pool");
 
-// sql query to get all categories
+
+//! Categories queries //
+
+// Get all categories
 async function getAllCategories() {
   try {
     const { rows } = await pool.query("SELECT * FROM categories");  // result of the pool.query() call is being destructured meaning that that the pool.query() method returns an object.
@@ -19,6 +22,27 @@ return rows end the functions and returns the values.
 
 
 
+// Get all categories and count number of sneakers
+async function getCategoriesAndSneakerCount() {    // count number of sneakers in a category using COUNT in sql.  
+  try {                                            // using left join to display all categories even if they don't have any items.
+    const { rows } = await pool.query(`
+                                      SELECT categories.id, categories.name, categories.image_filename, COUNT(items.id) AS sneaker_count
+                                      FROM categories
+                                      LEFT JOIN items
+                                      ON categories.id = items.category_id
+                                      GROUP BY categories.id
+                                      ORDER BY categories.id ASC
+                                    `);
+    return rows
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+}
+
+
+
+
 // Insert a new category
 async function insertCategory(name) {
   try {
@@ -28,6 +52,7 @@ async function insertCategory(name) {
     throw error;
   }
 }
+
 
 
 // Get a specific category
@@ -70,6 +95,10 @@ async function deleteCategory(id) {
 
 
 
+
+//! Item queries //
+
+
 // Get all items
 async function getAllItems() {
   try {
@@ -91,6 +120,9 @@ async function getAllItems() {
 
 
 // Add new item to a category
+
+
+
 
 
 
@@ -143,30 +175,9 @@ async function itemsByCategory(categoryId) {    // dynamically returning items o
 
 
 
-// Get all categories and count number of sneakers
-async function getCategoriesAndSneakerCount() {    // count number of sneakers in a category using COUNT in sql.  
-  try {                                            // using left join to display all categories even if they don't have any items.
-    const { rows } = await pool.query(`
-                                      SELECT categories.id, categories.name, categories.image_filename, COUNT(items.id) AS sneaker_count
-                                      FROM categories
-                                      LEFT JOIN items
-                                      ON categories.id = items.category_id
-                                      GROUP BY categories.id
-                                      ORDER BY categories.id ASC
-                                    `);
-    return rows
-  } catch (error) {
-    console.error('An error occurred during the query', error);
-    throw error
-  }
-  
-}
 
 
-
-
-
-
+//! Extra queries //
 
 // Search for item
 

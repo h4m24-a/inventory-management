@@ -12,7 +12,6 @@
     <div class="container">
       <h1><%= category.name %></h1>
       <div class="items-container">
-        <% if (items.length > 0) { %>
           <% items.forEach(item => { %>
             <div class="item-card">
               <h2><%= item.name %></h2>
@@ -20,9 +19,6 @@
               <p>Size: <%= item.size %></p>
             </div>
           <% }) %>
-        <% } else { %>
-          <p><%= message %>.</p>
-        <% } %>
       </div>
     </div>
   </div>
