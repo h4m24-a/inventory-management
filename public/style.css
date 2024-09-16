@@ -140,8 +140,7 @@
   font-family: 'Poppins', system-ui, -apple-system;
   text-align: left;
   background-color: ghostwhite;
-  padding: 20px;
-  font-size: 28px;
+  margin: 20px;
   font-weight: 500;
 }
 
@@ -150,7 +149,7 @@
   flex-direction: column; /* Stack items vertically */
   background-color: white;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
@@ -217,3 +216,49 @@
   padding: 0;
   margin: 0;
 }
+
+
+
+.item-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-button {
+  margin: 20px;
+  text-decoration: none;
+  color: white;
+  background: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #4CAF50; /* Updated to green */
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.item-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
+}
+
+.item-button:active {
+  background-color: #388E3C; /* Even darker green when active */
+  transform: translateY(1px); /* Button appears pressed */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; /* Reduced shadow */
+}
+
+.item-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.5); /* Focus ring in lighter green */
+}
+
+
+.item-buttons-container i {
+  margin-right: 6px;
+}
+
+

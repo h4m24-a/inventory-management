@@ -106,7 +106,7 @@ async function ItemsByCategoriesGet(req, res) {
     }
 
     // Extract category name (it's the same for all items, so just use the first one)
-    const categoryName = items[0].category_name;
+    const categoryName = items[0].category_name;    //  This accesses the first element of the items array and accesses the category_name property of the object found at items[0]
 
     res.render('itemsPerCategory', {    //  object with two properties
       category: { name: categoryName }, // An object with a name property set to the value of categoryName. This allows you to pass category information to template.
