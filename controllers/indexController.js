@@ -2,10 +2,10 @@ const db = require('../db/queries');
 
 // function to display all categories
 async function getCategories(req, res) {
-  try {
-    const categories = await db.getAllCategories();
+  try {                                          // gets both details of categories and the number of sneakers in each category using join in sql.
+    const categories = await db.getItemsAndSneakerCount();
     res.render('index', {     
-      categories : categories 
+      categories 
     });
   } catch (error) {
     console.error('Error fetching categories', error);

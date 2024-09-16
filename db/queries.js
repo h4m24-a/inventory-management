@@ -78,7 +78,7 @@ async function getAllItems() {
                                       FROM items
                                       JOIN categories 
                                       ON items.category_id = categories.id
-                                      ORDER BY category_name, items.id
+                                      ORDER BY category_name
                                       `);
 
     return rows                                               
@@ -143,6 +143,29 @@ async function itemsByCategory(categoryId) {    // dynamically returning items o
 
 
 
+// Count number of sneakers
+async function getItemsAndSneakerCount() {    // count number of sneakers in a category using COUNT in sql.  
+  try {                                       // using left join to display all categories even if they don't have any items.
+    const { rows } = await pool.query(`
+                                      SELECT categories.id, categories.name, categories.image_filename, COUNT(items.id) AS sneaker_count
+                                      FROM categories
+                                      LEFT JOIN items
+                                      ON categories.id = items.category_id
+                                      GROUP BY categories.id
+                                      ORDER BY categories.id ASC
+                                    `);
+    return rows
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+  
+}
+
+
+
+
+
 
 
 // Search for item
@@ -166,5 +189,6 @@ module.exports = {
   deleteCategory,
   getAllItems,
   selectItem,
-  itemsByCategory
+  itemsByCategory,
+  getItemsAndSneakerCount
 }
