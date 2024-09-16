@@ -143,9 +143,9 @@ async function itemsByCategory(categoryId) {    // dynamically returning items o
 
 
 
-// Count number of sneakers
-async function getItemsAndSneakerCount() {    // count number of sneakers in a category using COUNT in sql.  
-  try {                                       // using left join to display all categories even if they don't have any items.
+// Get all categories and count number of sneakers
+async function getCategoriesAndSneakerCount() {    // count number of sneakers in a category using COUNT in sql.  
+  try {                                            // using left join to display all categories even if they don't have any items.
     const { rows } = await pool.query(`
                                       SELECT categories.id, categories.name, categories.image_filename, COUNT(items.id) AS sneaker_count
                                       FROM categories
@@ -190,5 +190,5 @@ module.exports = {
   getAllItems,
   selectItem,
   itemsByCategory,
-  getItemsAndSneakerCount
+  getCategoriesAndSneakerCount
 }
