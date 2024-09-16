@@ -3,7 +3,7 @@ const db = require('../db/queries');
 // function to display all categories
 async function getCategories(req, res) {
   try {                                          // gets both details of categories and the number of sneakers in each category using join in sql.
-    const categories = await db.getItemsAndSneakerCount();
+    const categories = await db.getCategoriesAndSneakerCount();
     res.render('index', {     
       categories 
     });
