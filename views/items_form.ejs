@@ -23,8 +23,10 @@
 
            <label for="selectCategory">Select a Category:</label>
            <select name="selectCategory" id="selectCategory">
-             <option value="dynamic">dyanmic</option>
-           </select>
+            <% categories.forEach(category => { %>
+              <option value="<%= category.name %>"><%= category.name %></option>
+            <% }) %>
+          </select>
        
            <button class="" type="submit">Add Item</button>
            <a class="" href="/">View Items!</a>
@@ -36,4 +38,33 @@
    </div>
 </body>
 </html>
+  
+
+
+<%# /* category represents each individual object (or element) in the categories array as the loop iterates over it. %>
+
+<%# /* categories is an array, which you pass from your server to the EJS template. %>
+<%# /* Each element in this array represents a category object with properties like name.  %>
+
+
+<%# /* categories.forEach() is a function that iterates over every element (object) in the categories array.  %>
+
+
+
+<$# /* Callback function (category => { ... }):    %>
+
+  <$# /*  Inside forEach, you provide a callback function. This function gets called for every element in the array.  %>
+  <$# /*  The current element being processed is passed as an argument to this function (category in this case).      %>
+  <$# /*  category will refer to each category object in the categories array as the loop runs.                       %>
+
+
+
+  <%# /* The < option > tag is populated with the name property of each category object.                                            %>
+
+  <%# /*  For each category, the following is executed      < option value="< %= category.name %>">< %= category.name % ></ option>    %>
+  
+  <%# /* This will create an < option > tag in the HTML with the value and displayed text set to the name of the category.          %>
+  
+  
+  <%# /* The forEach loop doesn't return a value; it just executes the function for each item in the array.                            %>
   

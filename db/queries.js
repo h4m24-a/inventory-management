@@ -154,7 +154,7 @@ async function selectItem(id) {
 
 
 
-
+// Get items of selected category
 async function itemsByCategory(categoryId) {    // dynamically returning items of category using id extracted from url when selecting a category.
   try {
     const { rows } = await pool.query(`
@@ -192,6 +192,17 @@ async function itemsByCategory(categoryId) {    // dynamically returning items o
 
 
 
+// Get name of catagories for dropdown.
+async function getNameOfCategories() {
+  try {
+    const { rows } = await pool.query('SELECT categories.name FROM categories');
+    return rows
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+}
+
 module.exports = {
   getAllCategories,
   insertCategory,
@@ -201,5 +212,6 @@ module.exports = {
   getAllItems,
   selectItem,
   itemsByCategory,
-  getCategoriesAndSneakerCount
+  getCategoriesAndSneakerCount,
+  getNameOfCategories
 }
