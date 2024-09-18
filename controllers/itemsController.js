@@ -111,10 +111,30 @@ async function updateItemsPost(req, res) {
 }
 
 
+
+// function to delete a item
+async function deleteItemsPost(req, res) {
+  try {
+    const itemId = req.params.id;
+
+    const id = parseInt(itemId, 10);
+
+    await db.deleteItem(id);
+
+    res.redirect(302, '/items')
+  } catch (error) {
+    console.error('Error deleting item', error);
+    throw error
+  }
+  
+}
+
+
 module.exports = {
   getItems,
   createItemGet,
   createItemPost,
   updateItemsGet,
-  updateItemsPost
+  updateItemsPost,
+  deleteItemsPost
 }

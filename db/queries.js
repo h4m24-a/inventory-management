@@ -165,7 +165,15 @@ async function updateItem(name, price, size, category_id, id) {
 
 
 // Delete item from a category
-
+async function deleteItem(id) {
+  try {
+    await pool.query('DELETE FROM items WHERE id = $1', [id]);
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+  
+}
 
 
 
@@ -234,5 +242,6 @@ module.exports = {
   getCategoriesAndSneakerCount,
   getNameOfCategories,
   insertItem,
-  updateItem
+  updateItem,
+  deleteItem
 }

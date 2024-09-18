@@ -8,5 +8,6 @@ router.get('/new', itemsController.createItemGet) // display form to create new 
 router.post('/new', itemsController.createItemPost)   //  Adds new submitted data 
 router.get('/update/:id', itemsController.updateItemsGet)  // displays update form
 router.post('/update/:id', itemsController.updateItemsPost) // Adds updated data
+router.post('/delete/:id', itemsController.deleteItemsPost)// Delete an item
 
 module.exports = router;
