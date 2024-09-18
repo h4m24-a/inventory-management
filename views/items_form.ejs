@@ -25,7 +25,7 @@
            <select name="itemCategory" id="itemCategory" required>
              <option value="" disabled selected>Select a Category</option> <!-- Placeholder option -->
              <% categories.forEach(category => { %>
-              <option value="<%= category.id %>"><%= category.name %></option>
+              <option value="<%= category.id %>"><%= category.name %></option>    <!-- id is submitted but only the name is shown-->
              <% }) %>
            </select>
            <button class="" type="submit">Add Item</button>

@@ -43,13 +43,40 @@ async function createItemPost(req, res) {
     if (!category_id) {
       throw new Error('Category ID is required.');
     }
-    
+
     await db.insertItem(itemName, itemPrice, itemSize, category_id)      // invoke the db query and pass in the form data as aruements
 
     res.redirect(302, '/items')                                           // redirect to items page
     
   } catch (error) {
     console.error('Error adding item', error);
+    throw error
+  }
+}
+
+
+// function to display form
+async function updateItemsGet(req, res) {
+  try {
+    const itemId = req.params.id;
+    const id = parseInt(itemId, 10); // extracting id of item from url and converting it from a string to integer.
+
+       // Ensure itemId is a number
+       if (isNaN(itemId)) {
+        console.error('Invalid item ID:', itemId);
+        return res.status(400).send('Invalid item ID');
+      }
+
+    const item = await db.selectItem(id)      // get data of the selected item using selectItem query and passing in the item id
+    
+    const nameOfCategories = await db.getNameOfCategories();  // category data
+
+    res.render('items_update_form', {
+      item: item,
+      categories: nameOfCategories
+    });
+  } catch (error) {
+    console.error('Error displaying update form, error');
     throw error
   }
   
@@ -59,5 +86,6 @@ async function createItemPost(req, res) {
 module.exports = {
   getItems,
   createItemGet,
-  createItemPost
+  createItemPost,
+  updateItemsGet
 }

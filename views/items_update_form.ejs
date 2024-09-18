@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Create New Item</title>
+</head>
+<body>
+   <div class="wrapper">
+     <%- include('partials/navbar') %>
+     <div class="container">
+       <div class="form-container">
+         <form class="form" method="POST" action="/items/new">
+           <label class="input-group"  for="itemName">name</label>
+           <input id="itemName" type="text" name="itemName" value="<%= item.name %>" maxlength="30" required />
+
+           <label class="input-group"  for="itemPrice">Price</label>
+           <input id="itemPrice" type="text" name="itemPrice" value="<%= item.price %>"  maxlength="10" required />
+
+           <label class="input-group"  for="itemSize">Size</label>
+           <input id="itemSize" type="text" name="itemSize" value="<%= item.size %>"  maxlength="10" required />
+
+           <label for="itemCategory">Select a Category:</label>
+           <select name="itemCategory" id="itemCategory" required>
+          
+             <% categories.forEach(category => { %>
+              <option value="<%= category.id %>"><%= category.name %></option>    <!-- id is submitted but only the name is shown-->
+             <% }) %>
+           </select>
+           <button class="" type="submit">Update Item</button>
+           <a class="" href="/">View Items!</a>
+         </form>
+       </div>
+
+     </div>
+
+   </div>
+</body>
+</html>
+  
+
