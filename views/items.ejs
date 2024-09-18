@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css">
     <title>Items</title>
   </head>
   <body>
@@ -31,7 +31,7 @@
             <p class="category-name"><%= item.category_name %></p>
             <p><%= item.size %></p>
             <div class="item-icons">
-              <a href="" aria-label="Update">
+              <a href="/items/update/<%= item.id %>" aria-label="Update">
                 <i class="fa-regular fa-pen-to-square"></i>
               </a>
               <a href="" aria-label="Delete">
