@@ -13,7 +13,7 @@
        <div class="form-container">
          <form class="form" method="POST" action="/items/new">
            <label class="input-group"  for="itemName">name</label>
-           <input id="itemName" type="text" name="itemName" maxlength="20" required />
+           <input id="itemName" type="text" name="itemName" maxlength="30" required />
 
            <label class="input-group"  for="itemPrice">Price</label>
            <input id="itemPrice" type="text" name="itemPrice" maxlength="10" required />
@@ -21,13 +21,13 @@
            <label class="input-group"  for="itemSize">Size</label>
            <input id="itemSize" type="text" name="itemSize" maxlength="10" required />
 
-           <label for="selectCategory">Select a Category:</label>
-           <select name="selectCategory" id="selectCategory">
-            <% categories.forEach(category => { %>
-              <option value="<%= category.name %>"><%= category.name %></option>
-            <% }) %>
-          </select>
-       
+           <label for="itemCategory">Select a Category:</label>
+           <select name="itemCategory" id="itemCategory" required>
+             <option value="" disabled selected>Select a Category</option> <!-- Placeholder option -->
+             <% categories.forEach(category => { %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+             <% }) %>
+           </select>
            <button class="" type="submit">Add Item</button>
            <a class="" href="/">View Items!</a>
          </form>

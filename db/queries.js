@@ -107,7 +107,6 @@ async function getAllItems() {
                                       FROM items
                                       JOIN categories 
                                       ON items.category_id = categories.id
-                                      ORDER BY category_name
                                       `);
 
     return rows                                               
@@ -119,7 +118,17 @@ async function getAllItems() {
 
 
 
-// Add new item to a category
+// Insert new item
+async function insertItem(name, price, size, category_id) {
+  try {
+    await pool.query('INSERT into items (name, price, size, category_id) VALUES ($1, $2, $3, $4)', [name, price, size, category_id])
+    
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+  
+}
 
 
 
@@ -195,7 +204,7 @@ async function itemsByCategory(categoryId) {    // dynamically returning items o
 // Get name of catagories for dropdown.
 async function getNameOfCategories() {
   try {
-    const { rows } = await pool.query('SELECT categories.name FROM categories');
+    const { rows } = await pool.query('SELECT * FROM categories');
     return rows
   } catch (error) {
     console.error('An error occurred during the query', error);
@@ -213,5 +222,6 @@ module.exports = {
   selectItem,
   itemsByCategory,
   getCategoriesAndSneakerCount,
-  getNameOfCategories
+  getNameOfCategories,
+  insertItem
 }
