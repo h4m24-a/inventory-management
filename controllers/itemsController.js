@@ -55,28 +55,39 @@ async function createItemPost(req, res) {
 }
 
 
-// function to display form
+// function to display update form
 async function updateItemsGet(req, res) {
   try {
-    const itemId = req.params.id;
-    const id = parseInt(itemId, 10); // extracting id of item from url and converting it from a string to integer.
+    const itemId = req.params.id;     // extracting id of item from url
+    const id = parseInt(itemId, 10);  //  convert id from a string to integer
 
        // Ensure itemId is a number
        if (isNaN(itemId)) {
         console.error('Invalid item ID:', itemId);
-        return res.status(400).send('Invalid item ID');
+        return res.status(400).send('Invalid item ID!');
       }
 
     const item = await db.selectItem(id)      // get data of the selected item using selectItem query and passing in the item id
-    
-    const nameOfCategories = await db.getNameOfCategories();  // category data
+    const nameOfCategories = await db.getNameOfCategories();  // Get data of categories
 
     res.render('items_update_form', {
       item: item,
       categories: nameOfCategories
     });
   } catch (error) {
-    console.error('Error displaying update form, error');
+    console.error('Error displaying update form', error);
+    throw error
+  }
+}
+
+
+
+// function to update item
+async function updateItemsPost(req, res) {
+  try {
+    
+  } catch (error) {
+    console.error('Error updating form', error);
     throw error
   }
   
@@ -87,5 +98,6 @@ module.exports = {
   getItems,
   createItemGet,
   createItemPost,
-  updateItemsGet
+  updateItemsGet,
+  updateItemsPost
 }
