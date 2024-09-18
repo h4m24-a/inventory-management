@@ -11,7 +11,7 @@
      <%- include('partials/navbar') %>
      <div class="container">
        <div class="form-container">
-         <form class="form" method="POST" action="/items/new">
+         <form class="form" method="POST" action="/items/update/<%= item.id %>">
            <label class="input-group"  for="itemName">name</label>
            <input id="itemName" type="text" name="itemName" value="<%= item.name  %>" maxlength="30" required />
 
@@ -23,11 +23,11 @@
 
            <label for="itemCategory">Select a Category:</label>
            <select name="itemCategory" id="itemCategory" required>
-          
              <% categories.forEach(category => { %>
-              <option value="<%= category.id %>"><%= category.name %></option>    <!-- id is submitted but only the name is shown-->
+               <option value="<%= category.id %>" <%= category.id == item.category_id ? 'selected' : '' %>><%= category.name %></option>
              <% }) %>
            </select>
+           
            <button class="" type="submit">Update Item</button>
            <a class="" href="/">View Items!</a>
          </form>
@@ -40,3 +40,26 @@
 </html>
   
 
+
+
+
+
+<% /* %>
+<option value="<%= category.id %>":
+
+- The value attribute of the <option> element is set to category.id. 
+- This means that when the user selects this option from the dropdown, the category.id will be submitted as the value.
+
+
+
+<%= category.id == item.category_id ? 'selected' : '' %>:
+
+- This is a conditional (ternary) operator in EJS. It checks if the category.id is equal to item.category_id.
+- If the category.id matches item.category_id, the selected attribute is added to this option, making it the pre-selected option when the form is loaded.
+- If they don't match, it leaves the option without the selected attribute.
+
+
+><%= category.name %></option>:
+
+- The category.name is inserted between the opening and closing <option> tags, making it the visible text that the user sees in the dropdown.
+  <% */ %>

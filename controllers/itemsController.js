@@ -32,6 +32,8 @@ async function createItemGet(req, res) {
 
 
 
+
+
 // function to add a new item
 async function createItemPost(req, res) {
   try {                                         // gets the data from form
@@ -53,6 +55,9 @@ async function createItemPost(req, res) {
     throw error
   }
 }
+
+
+
 
 
 // function to display update form
@@ -85,7 +90,19 @@ async function updateItemsGet(req, res) {
 // function to update item
 async function updateItemsPost(req, res) {
   try {
-    
+    const itemId = req.params.id;
+    const id = parseInt(itemId, 10);    // id of item
+
+    // getting data from form
+    const itemName = req.body.itemName;         
+    const itemPrice = req.body.itemPrice;
+    const itemSize = req.body.itemSize;
+    const category_id = req.body.itemCategory;    // id of category
+
+    await db.updateItem(itemName, itemPrice, itemSize, category_id, id);
+
+    res.redirect(302, '/items');
+
   } catch (error) {
     console.error('Error updating form', error);
     throw error

@@ -151,7 +151,16 @@ async function selectItem(id) {
 
 
 // Update item
-
+async function updateItem(name, price, size, category_id, id) {
+  try {
+    await pool.query('UPDATE items SET name = $1, price = $2, size = $3, category_id = $4 WHERE id = $5', [name, price, size, category_id, id])
+    
+  } catch (error) {
+    console.error('An error occurred during the query');
+    throw error;
+  }
+  
+}
 
 
 
@@ -224,5 +233,6 @@ module.exports = {
   itemsByCategory,
   getCategoriesAndSneakerCount,
   getNameOfCategories,
-  insertItem
+  insertItem,
+  updateItem
 }
