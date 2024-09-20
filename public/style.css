@@ -306,3 +306,43 @@
   cursor: pointer;
   outline: inherit;
 }
+
+
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px auto;
+  padding: 20px;
+  max-width: 30%;
+  border-radius: 12px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.pagination-btn, .pagination-link {
+  text-decoration: none;
+  color: #007bff;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-btn:hover, .pagination-link:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.pagination-link.active {
+  background-color: #007bff;
+  color: #fff;
+  pointer-events: none;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 8px;
+}

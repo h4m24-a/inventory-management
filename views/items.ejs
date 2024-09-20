@@ -45,6 +45,24 @@
           </div>
           <% }); %>
         </div>
+                
+          <div class="pagination-container">
+            <% if (currentPage > 1) { %>
+              <a href="/items?page=<%= currentPage - 1 %>&limit=<%= limit %>" class="pagination-btn">Previous</a>
+            <% } %>
+
+            <div class="pagination-numbers">
+              <% for (let i = 1; i <= totalPages; i++) { %>
+                <a href="/items?page=<%= i %>&limit=<%= limit %>" class="pagination-link <%= i == currentPage ? 'active' : '' %>">
+                  <%= i %>
+                </a>
+              <% } %>
+            </div>
+
+            <% if (currentPage < totalPages) { %>
+              <a href="/items?page=<%= currentPage + 1 %>&limit=<%= limit %>" class="pagination-btn">Next</a>
+            <% } %>
+          </div>
       </div>
     </div>
   </body>

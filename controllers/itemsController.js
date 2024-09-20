@@ -1,17 +1,35 @@
 const db = require('../db/queries');
+const pool = require("../db/pool");
 
-// function to display all items
+// Function to display all items with pagination
 async function getItems(req, res) {
   try {
-    const items = await db.getAllItems()
+    // Set the default limit and page
+    const limit = parseInt(req.query.limit) || 10; // Number of items per page, default is 10
+    const page = parseInt(req.query.page) || 1; // Current page, default is page 1
+    const offset = (page - 1) * limit; // Calculate the offset
+
+    // Fetch items with limit and offset
+    const items = await db.getAllItems(limit, offset);
+
+    // Fetch the total count of items to calculate total pages
+    const { rows: countRows } = await pool.query('SELECT COUNT(*) FROM items');
+    const totalItems = parseInt(countRows[0].count);
+    const totalPages = Math.ceil(totalItems / limit); // Calculate total number of pages
+
+    // Render the 'items' page with pagination data
     res.render('items', {
-      items: items
-    })
+      items: items,
+      currentPage: page,
+      totalPages: totalPages,
+      limit: limit
+    });
   } catch (error) {
-    console.error('Error fetching items', error)
-    throw error
+    console.error('Error fetching items', error);
+    res.status(500).send('An error occurred while fetching items');
   }
 }
+
 
 
 // function to display item form

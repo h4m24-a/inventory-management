@@ -100,14 +100,15 @@ async function deleteCategory(id) {
 
 
 // Get all items
-async function getAllItems() {
+async function getAllItems(limit, offset) {
   try {
     const { rows } = await pool.query(`
                                       SELECT items.id, items.name, items.price, items.size, categories.name AS category_name
                                       FROM items
                                       JOIN categories 
                                       ON items.category_id = categories.id
-                                      `);
+                                      LIMIT $1 OFFSET $2;
+                                      `, [limit, offset]);
 
     return rows                                               
   } catch (error) {
