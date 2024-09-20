@@ -44,6 +44,6 @@ app.listen(3000, () => {
 
 
 
-// TODO - Add an image when creating a new category, --   set default image for all categories instead, image to cover whole card //
+
 // TODO - Update UI, style forms, style navbar // 
 // TODO - Form validation and sanitization
