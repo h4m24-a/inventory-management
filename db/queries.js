@@ -44,9 +44,9 @@ async function getCategoriesAndSneakerCount() {    // count number of sneakers i
 
 
 // Insert a new category
-async function insertCategory(name) {
+async function insertCategory(name, image_filename) {
   try {
-    await pool.query('INSERT INTO categories (name) VALUES ($1)', [name]);
+    await pool.query('INSERT INTO categories (name, image_filename) VALUES ($1, $2)', [name, image_filename]);
   } catch (error) {
     console.error('An error occurred during query', error)
     throw error;
@@ -67,7 +67,7 @@ async function selectCategory(id) {
 }
 
 
-// Update category
+// Update category name only
 async function updateCategory(name, id) {
   try {
     await pool.query('UPDATE categories SET name = $1 WHERE id = $2', [name, id]);
@@ -76,6 +76,20 @@ async function updateCategory(name, id) {
     throw error
   }
 }
+
+
+
+
+// Update category , both name and image
+async function updateCategoryWithImage(id, name, image_filename) {
+  try {
+    await pool.query('UPDATE categories SET name = $1, image_filename = $2 WHERE id = $3', [name, image_filename, id]);
+  } catch (error) {
+    console.error('An error occurred during query', error)
+    throw error
+  }
+}
+
 
 
 
@@ -244,5 +258,6 @@ module.exports = {
   getNameOfCategories,
   insertItem,
   updateItem,
-  deleteItem
+  deleteItem,
+  updateCategoryWithImage
 }

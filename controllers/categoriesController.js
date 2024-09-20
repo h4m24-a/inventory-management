@@ -28,7 +28,8 @@ async function createCategoryGet(req, res) {
 async function createCategoryPost(req, res) {
   try {
     const categoryName = req.body.categoryName; // getting value of categoryName of form
-    await db.insertCategory(categoryName);
+    const imageFilename = req.file ? req.file.filename : 'default.jpg';  // Use default image if no file is uploaded
+    await db.insertCategory(categoryName, imageFilename);
     res.redirect(302, '/');
   } catch (error) {
     console.error('Error adding new category', error);
@@ -63,8 +64,19 @@ async function updateCategoryPost(req, res) {
     const categoryId = req.params.id;
     const id = parseInt(categoryId, 10);
     const categoryName = req.body.categoryName;
+    
+    const categoryImage = req.file ? req.file.filename : 'default.jpg';  // Only update image if a new one is uploaded
 
-    await db.updateCategory(categoryName, id);
+
+    if (categoryImage) {
+      // If a new image is uploaded, update both name and image
+      await db.updateCategoryWithImage(id, categoryName, categoryImage)
+    } else {
+      // If no new image is uploaded, update only the category name
+      await db.updateCategory(categoryName, id)
+    }
+    
+
     res.redirect(302, '/');
 
   } catch (error) {
