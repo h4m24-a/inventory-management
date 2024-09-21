@@ -350,3 +350,57 @@
   display: flex;
   gap: 8px;
 }
+
+
+
+/* Category buttons */
+.delete-btn{
+  background-color: #f53336;
+  border: none;
+  padding: 12px 12px;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  width: 150px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.delete-btn:hover {
+  background-color: #f72718; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
+}
+
+.update-btn{
+  background-color: #2ac95f;
+  border: none;
+  padding: 12px 12px;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  width: 150px;
+  text-align: center;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.update-btn:hover {
+  background-color: #29d319; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
+}
+
+
+
+.category-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
