@@ -10,16 +10,20 @@
    <div class="wrapper">
      <%- include('partials/navbar') %>
      <div class="container">
-       <div class="form-container">
+       <h1 class="sub-title">Update Category</h1>
+       <div class="categories-form-container">
         <form class="form" method="POST" enctype="multipart/form-data" action="/categories/update/<%= category.id %>">
-           <label class="input-group"  for="categoryName">name</label>
+           <label class="input-group"  for="categoryName">Name</label>
            <input id="categoryName" type="text" name="categoryName"  value="<%= category.name %>" maxlength="20" required />
 
            <label class="input-group" for="categoryImage">Category Image</label>
            <input id="categoryImage" type="file" name="categoryImage" accept="image/*" />
        
-           <button class="" type="submit">Update Category</button>
-           <a class="" href="/">View Categories!</a>
+           <div class="category-form-btns">
+            <button style="background-color: coral;" class="add-category-btn" type="submit">Update Category</button>
+            <a style="background-color: darkcyan;" class="view-category-btn" href="/">View Categories!</a>
+          </div>
+           
          </form>
        </div>
 
