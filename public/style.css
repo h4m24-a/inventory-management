@@ -408,7 +408,7 @@
 /* Form  */
 
 
-.categories-form-container {
+.form-container {
  background-color: white;
  width: 30%;
  padding: 40px;
@@ -490,7 +490,7 @@ input[type="text"]::placeholder {
   margin-top: 5px;
 }
 
-.categories-form-container label{
+.form-container label{
   margin-top: 10px;
   color: black;
   font-size: 18px; 
@@ -506,7 +506,7 @@ input[type="text"]::placeholder {
 
 
 
-.add-category-btn{
+.add-btn{
   background-color: #2ac95f;
   border: none;
   padding: 12px 12px;
@@ -521,13 +521,13 @@ input[type="text"]::placeholder {
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
-.add-category-btn:hover {
+.add-btn:hover {
   background-color: #29d319; /* Darker green on hover */
   transform: translateY(-3px); /* Slight lift on hover */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
 }
 
-.view-category-btn{
+.view-btn{
   background-color: #2a6fc9;
   border: none;
   padding: 12px 12px;
@@ -542,17 +542,58 @@ input[type="text"]::placeholder {
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
-.view-category-btn:hover {
+.view-btn:hover {
   background-color: #1761c2; /* Darker green on hover */
   transform: translateY(-3px); /* Slight lift on hover */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
 }
 
 
-.category-form-btns {
+.form-btns {
 display: flex;
-margin-top: 1rem;
 justify-content: center;
 gap: 15px;
+margin: 15px auto;
 align-items: center;
+}
+
+
+/* Basic styling for select dropdown */
+select {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Change the border color when focused */
+select:focus {
+  border-color: #007bff;
+}
+
+/* Styling the options in the dropdown */
+select option {
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Disabled select dropdown */
+select:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+}
+
+/* Change the appearance of the dropdown arrow */
+select {
+  appearance: none; /* For Webkit browsers */
+  -moz-appearance: none; /* For Firefox */
+  -ms-appearance: none; /* For IE */
+  background-image: url('data:image/svg+xml;base64,...'); /* Add custom arrow */
+  background-position: right 10px center;
+  background-repeat: no-repeat;
 }

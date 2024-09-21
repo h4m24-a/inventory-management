@@ -10,9 +10,10 @@
    <div class="wrapper">
      <%- include('partials/navbar') %>
      <div class="container">
+      <h1 class="sub-title">Add Item</h1>
        <div class="form-container">
          <form class="form" method="POST" action="/items/new">
-           <label class="input-group"  for="itemName">name</label>
+           <label class="input-group"  for="itemName">Name</label>
            <input id="itemName" type="text" name="itemName" maxlength="30" required />
 
            <label class="input-group"  for="itemPrice">Price</label>
@@ -21,15 +22,16 @@
            <label class="input-group"  for="itemSize">Size</label>
            <input id="itemSize" type="text" name="itemSize" maxlength="10" required />
 
-           <label for="itemCategory">Select a Category:</label>
            <select name="itemCategory" id="itemCategory" required>
              <option value="" disabled selected>Select a Category</option> <!-- Placeholder option -->
              <% categories.forEach(category => { %>
               <option value="<%= category.id %>"><%= category.name %></option>    <!-- id is submitted but only the name is shown-->
              <% }) %>
            </select>
-           <button class="" type="submit">Add Item</button>
-           <a class="" href="/">View Items!</a>
+           <div class="form-btns">
+             <button class="add-btn" type="submit">Add Item</button>
+             <a class="view-btn" href="/">View Items!</a>
+           </div>
          </form>
        </div>
 

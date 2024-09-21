@@ -10,9 +10,10 @@
    <div class="wrapper">
      <%- include('partials/navbar') %>
      <div class="container">
+      <h1 class="sub-title">Update Item</h1>
        <div class="form-container">
          <form class="form" method="POST" action="/items/update/<%= item.id %>">
-           <label class="input-group"  for="itemName">name</label>
+           <label class="input-group"  for="itemName">Name</label>
            <input id="itemName" type="text" name="itemName" value="<%= item.name  %>" maxlength="30" required />
 
            <label class="input-group"  for="itemPrice">Price</label>
@@ -21,15 +22,18 @@
            <label class="input-group"  for="itemSize">Size</label>
            <input id="itemSize" type="text" name="itemSize" value="<%= item.size  %>"  maxlength="10" required />
 
-           <label for="itemCategory">Select a Category:</label>
+        
            <select name="itemCategory" id="itemCategory" required>
              <% categories.forEach(category => { %>
                <option value="<%= category.id %>" <%= category.id == item.category_id ? 'selected' : '' %>><%= category.name %></option>
              <% }) %>
            </select>
            
-           <button class="" type="submit">Update Item</button>
-           <a class="" href="/">View Items!</a>
+           <div class="form-btns">
+             <button style="background-color: coral;" class="update-btn" type="submit">Update Item</button>
+             <a style="background-color: cornflowerblue;" class="view-btn" href="/items">View Items!</a>
+
+           </div>
          </form>
        </div>
 

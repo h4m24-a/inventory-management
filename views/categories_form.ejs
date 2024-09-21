@@ -11,7 +11,7 @@
      <%- include('partials/navbar') %>
      <div class="container">
        <h1 class="sub-title">Add new Category</h1>
-       <div class="categories-form-container">
+       <div class="form-container">
          <form class="form" method="POST" enctype="multipart/form-data" action="/categories/new">
            <label class="input-group"  for="categoryName">Name</label>
            <input id="categoryName" type="text" name="categoryName" maxlength="20" required />
@@ -19,9 +19,9 @@
            <label class="input-group" for="categoryImage">Category Image</label>
            <input id="categoryImage" type="file" name="categoryImage" accept="image/*"/>
        
-           <div class="category-form-btns">
-             <button class="add-category-btn" type="submit">Add Category</button>
-             <a class="view-category-btn" href="/">View Categories!</a>
+           <div class="form-btns">
+             <button class="add-btn" type="submit">Add Category</button>
+             <a class="view-btn" href="/">View Categories!</a>
  
            </div>
           </form>

@@ -45,5 +45,6 @@ app.listen(3000, () => {
 
 
 
-// TODO - Update UI, style forms, style navbar // 
+// TODO - Update UI, style forms, style navbar, style update & delete buttons // 
 // TODO - Form validation and sanitization
+// TODO - Mobile responsive
