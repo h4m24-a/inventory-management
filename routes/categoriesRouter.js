@@ -35,16 +35,16 @@ const upload = multer({
 
 
 
-// router.get('/', categoriesController.getCategories);                      // displays all categories
-router.get('/new', categoriesController.createCategoryGet);                  // display  new category form
-router.post('/new', validateCategory, upload.single('categoryImage'), categoriesController.createCategoryPost);           // save submitted category data
+// router.get('/', categoriesController.getCategories);                                                           // displays all categories
+router.get('/new', categoriesController.createCategoryGet);                                                       // display  new category form
+router.post('/new', validateCategory, upload.single('categoryImage'), categoriesController.createCategoryPost);   // save submitted category data
 
-router.get('/update/:id', categoriesController.updateCategoryGet);           // displays update form
-router.post('/update/:id', upload.single('categoryImage'), categoriesController.updateCategoryPost);    // updates category
+router.get('/update/:id', categoriesController.updateCategoryGet);                                                // displays update form
+router.post('/update/:id', upload.single('categoryImage'), categoriesController.updateCategoryPost);              // updates category
 
-router.post('/delete/:id', categoriesController.deleteCategoryPost )         // deletes category
+router.post('/delete/:id', categoriesController.deleteCategoryPost )                                              // deletes category
 
-router.get('/:id/items', categoriesController.ItemsByCategoriesGet);          // displays items by categories
+router.get('/:id/items', categoriesController.ItemsByCategoriesGet);                                              // displays items by categories
 
 
 
