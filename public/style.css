@@ -16,9 +16,9 @@
 }
 
 .sidebar {
-  background-color: #181a19;
+  background-color: #141a29;
   width: 310px;
-  height: 100vh;
+  height: 100%;
   min-height: 100vh;
   padding-top: 10px; /* Adjust padding as needed */
   
@@ -27,8 +27,8 @@
 .sidebar a {
   text-decoration: none;
   display: flex;
-  padding: 15px 12px;
-  color: #7a7979;
+  padding: 18px;
+  color: ghostwhite;
   font-size: 20px;
   justify-content: flex-start;
   align-items: center;
@@ -48,7 +48,7 @@
   font-weight: 800;
   font-family: 'Rubik', sans-serif;
   text-transform: lowercase;
-  color: #bebaba;
+  color: ghostwhite;
 }
 
 .sidebar .content {
@@ -56,7 +56,7 @@
 }
 
 .content :hover {
-  background-color: #282828;
+  background-color: #33353e;
   color: #fff;
 }
 
