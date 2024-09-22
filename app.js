@@ -45,6 +45,5 @@ app.listen(3000, () => {
 
 
 
-// TODO - style navbar, forms
 // TODO - Form validation and sanitization
 // TODO - Mobile responsive

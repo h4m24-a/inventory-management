@@ -1,6 +1,9 @@
 const db = require('../db/queries');
 const pool = require("../db/pool");
 
+const { validationResult } = require('express-validator');  
+
+
 // Function to display all items with pagination
 async function getItems(req, res) {
   try {
@@ -54,6 +57,19 @@ async function createItemGet(req, res) {
 
 // function to add a new item
 async function createItemPost(req, res) {
+
+  // Check for validation errors
+  const errors = validationResult(req);
+  const nameOfCategories = await db.getNameOfCategories();  
+  
+  if (!errors.isEmpty()) {
+    return res.render('items_form', {
+      errors: errors,
+      categories: nameOfCategories, // Pass your categories here
+      ...req.body
+    });
+  }
+
   try {                                         // gets the data from form
     const itemName = req.body.itemName;         
     const itemPrice = req.body.itemPrice;
