@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
@@ -27,7 +27,7 @@
 .sidebar a {
   text-decoration: none;
   display: flex;
-  padding: 18px;
+  padding: 15px 12px;
   color: #7a7979;
   font-size: 20px;
   justify-content: flex-start;
@@ -35,6 +35,7 @@
   transition: margin 0.4s;
   text-align: center;
   font-family: "Poppins", sans-serif;
+  border-radius: 6px;
 }
 
 .sidebar a i {
@@ -62,7 +63,7 @@
 .h_line {
   border-bottom: 3px solid rgb(80, 80, 78);
   width: 310px;
-  margin-top: 4px;
+  margin-top: 6px;
   text-align: center;
 }
 
@@ -357,13 +358,13 @@
 .delete-btn{
   background-color: #f53336;
   border: none;
-  padding: 12px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   font-family: 'Rubik', sans-serif;
   text-decoration: none;
   font-size: 14px;
   text-align: center;
-  width: 150px;
+  width: 80px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
@@ -378,12 +379,12 @@
 .update-btn{
   background-color: #2ac95f;
   border: none;
-  padding: 12px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   font-family: 'Rubik', sans-serif;
   text-decoration: none;
   font-size: 14px;
-  width: 150px;
+  width: 80px;
   text-align: center;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -405,16 +406,17 @@
 }
 
 
+
 /* Form  */
 
 
 .form-container {
  background-color: white;
  width: 30%;
- padding: 40px;
+ padding: 30px;
  border-radius: 10px;
  margin: 20px auto;
- box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
 
 .form {
@@ -459,7 +461,7 @@ input[type="text"]::placeholder {
 .input-group p, input {
   font-family: 'Quicksand', sans-serif;
   margin: 4px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 
@@ -475,7 +477,7 @@ input[type="text"]::placeholder {
 /* Style for the form and text inputs */
  input[type="text"] {
   font-family: 'Poppins', Arial, sans-serif; 
-  font-size: 16px; 
+  font-size: 15px; 
   color: #333;
   outline: none; 
   margin-bottom: 16px;
@@ -493,8 +495,7 @@ input[type="text"]::placeholder {
 .form-container label{
   margin-top: 10px;
   color: black;
-  font-size: 18px; 
-  margin-bottom: 2px; 
+  font-size: 16px; 
   font-weight: 500; 
   display: block;
 }
