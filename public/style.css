@@ -602,6 +602,17 @@ select {
  color: black;
 }
 
+nav {
+  margin: 0; 
+  padding: 0; 
+  background: none; /* Remove any default background */
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0; 
+  padding: 0; 
+}
 
 
 
@@ -651,13 +662,13 @@ select {
   .sidebar {
     width: 300px;
     height: auto;
-   display: none;
+    display: none;
   }
 
   
 
   .sidebar.open {
-    display: block; /* Visible */
+    display: block;
   }
 
 
