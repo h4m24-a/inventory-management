@@ -18,10 +18,9 @@
 .sidebar {
   background-color: #141a29;
   width: 310px;
-  height: 100%;
+  height: auto;
   min-height: 100vh;
   padding-top: 10px; /* Adjust padding as needed */
-  
 }
 
 .sidebar a {
@@ -51,9 +50,6 @@
   color: ghostwhite;
 }
 
-.sidebar .content {
-  margin-top: 10px;
-}
 
 .content :hover {
   background-color: #33353e;
@@ -63,7 +59,7 @@
 .h_line {
   border-bottom: 3px solid rgb(80, 80, 78);
   width: 310px;
-  margin-top: 6px;
+
   text-align: center;
 }
 
@@ -598,3 +594,131 @@ select {
   background-position: right 10px center;
   background-repeat: no-repeat;
 }
+
+
+
+.mobile-nav-toggle {
+ display: none;
+ color: black;
+}
+
+
+
+
+/* Mobile Responsive */
+
+@media (max-width: 1500px) {
+  .form-container {
+    width: 100%; 
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-container {
+    width: 100%; 
+    
+  }
+
+  .form-btns {
+    flex-direction: column;
+  }
+}
+
+
+
+@media (max-width: 800px) {
+  .form-container {
+    width: 100%;  
+  }
+
+
+  .title {
+    font-size: 20px;
+  }
+
+
+  .categories-card {
+    width: 50%;
+  }
+
+
+  .items-container {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* Navbar */
+  .sidebar {
+    width: 300px;
+    height: auto;
+   display: none;
+  }
+
+  
+
+  .sidebar.open {
+    display: block; /* Visible */
+  }
+
+
+
+  .mobile-nav-toggle {
+    position: absolute;
+    color: black;
+    cursor: pointer;
+    font-size: 40px;
+    display: block;
+    padding: 10px;
+  }
+
+  .title {
+    width: 80%;
+    margin: 0 auto;
+  }
+ 
+  .brand {
+    margin-top: 50px;
+  }
+
+
+  .item-buttons-container {
+    margin-top: 30px;
+  }
+  
+}
+
+
+@media (max-width: 600px) {
+  .items-container {
+    font-size: 10px;
+  }
+
+  .item-buttons-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 3px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 100%; /* Adjust for mobile devices */
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  form label {
+    font-size: 16px; /* Slightly smaller labels on mobile */
+  }
+
+  input[type="text"], input[type="submit"] {
+    font-size: 14px; /* Smaller font for inputs on mobile */
+    padding: 10px; /* Reduce padding for better fit */
+  }
+
+  .items-container {
+    font-size: 9px;
+  }
+}
+
+

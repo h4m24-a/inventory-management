@@ -42,8 +42,3 @@ app.listen(3000, () => {
   console.log(`Server running on PORT 3000 `)
 })
 
-
-
-
-// TODO - Form validation and sanitization
-// TODO - Mobile responsive
