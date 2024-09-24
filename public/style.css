@@ -27,13 +27,13 @@
   text-decoration: none;
   display: flex;
   padding: 18px;
-  color: ghostwhite;
+  color: white;
   font-size: 20px;
   justify-content: flex-start;
   align-items: center;
   transition: margin 0.4s;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   border-radius: 6px;
 }
 
@@ -48,6 +48,11 @@
   font-family: 'Rubik', sans-serif;
   text-transform: lowercase;
   color: ghostwhite;
+}
+
+
+.brand:hover {
+  color: #007bff;
 }
 
 

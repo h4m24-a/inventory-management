@@ -7,13 +7,13 @@ const { Client } = require("pg"); //  used to interact with the PostgreSQL datab
 const SQL = `
 CREATE TABLE IF NOT EXISTS categories (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    name VARCHAR(20)
+    name VARCHAR(20),
+    image_filename VARCHAR
 );
 
 INSERT INTO categories (name)
 VALUES
     ('Designer'),
-    ('Sneakers'),
     ('Running'),
     ('High Top')
 
@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS items (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(40),
     price NUMERIC(10, 2),
-    quantity INTEGER,
     size VARCHAR(10),
     category_id INTEGER REFERENCES categories (id)
 );
