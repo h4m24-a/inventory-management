@@ -4,12 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/style.css">
-  <title>Sneaker Inventory Management</title>
+  <link rel="shortcut icon" href= "/images/logo/favicon32.png>">
+  <title>Sneaker Shelf - Inventory Manager</title>
 </head>
 <body>
    <div class="wrapper">
      <%- include('partials/navbar') %>
      <div class="container">
+      <div class="profile">
+        <% if (currentUser) { %>
+          <p class="current-user"><%= currentUser.username %> <i class="fa-solid fa-angle-down"></i></p>
+          <div class="profile-modal">
+            <p class="username-modal"><%= currentUser.username %></p>
+            <div class="line"></div>
+            <a class="log-out-button" href="/auth/log-out"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log Out</a>
+          </div>
+        <% } %>
+      </div>
        <p class="title">Track, manage, and grow your sneaker collection effortlessly</p>
        
         <p class="sub-title">Select  Category</p>
