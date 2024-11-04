@@ -2,6 +2,8 @@ const express = require('express')
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 let path = require('path');
+const session = require("express-session");
+const passport = require("passport");
 
 const app = express();
 
@@ -14,13 +16,41 @@ app.use(express.static('public'));    // 'public' is our static folder.
 app.use(express.json());  // submit raw json
 app.use(express.urlencoded({ extended: true }));  // takes in an object - replicates web form and sends form data.
 
+// Session setup
+app.use(session({   // initializes sessions with a secure secret, avoids unnecessary saves, and only creates sessions when necessary
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
+
+// Initialize Passport
+app.use(passport.initialize());
+
+// session-based authentication
+app.use(passport.session()); // integrates Passport.js with the session, enabling persistent login sessions where users remain authenticated across requests after logging in.
+
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;    // currentUser is now available in every .ejs file
+  next();
+});
+
+
+// Global route protection: redirect to login page if not authenticated
+app.use((req, res, next) => {
+  if (req.path === '/auth/log-in' || req.path === '/auth/sign-up' || req.isAuthenticated()) {
+    return next()
+  }
+  res.redirect('/auth/log-in')
+})
 
 
 // Routers
 let indexRouter = require('./routes/index');
 let categoriesRouter = require('./routes/categoriesRouter');
 let itemsRouter = require('./routes/itemsRouter');
-
+let authRouter = require('./auth/authRoutes');
 
 
 //  There are two parts to setting up the engine. First, we set the 'views' value to specify the folder where the templates will be stored (in this case the subfolder /views). 
@@ -36,9 +66,17 @@ app.set('view engine', 'ejs')
 app.use('/', indexRouter);
 app.use('/categories', categoriesRouter);
 app.use('/items', itemsRouter);
+app.use('/auth', authRouter);
 
 
 app.listen(3000, () => {
-  console.log(`Server running on PORT 3000 `)
+  console.log(`Server running on 3000 `)
 })
 
+
+
+// TODO - Authentication and Authorization
+
+//*  Authentication verifies the identity of a user or service, and authorization determines their access rights.
+
+//* Host images on aws somewhere, change multer code to whatever service you use to store images, change image url  on index.ejs
