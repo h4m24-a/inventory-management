@@ -75,8 +75,9 @@ app.listen(3000, () => {
 
 
 
-// TODO - Authentication and Authorization
 
-//*  Authentication verifies the identity of a user or service, and authorization determines their access rights.
+// TODO - Add a guest mode?
 
-//* Host images on aws somewhere, change multer code to whatever service you use to store images, change image url  on index.ejs
+// TODO - Make Login and Signup page mobile responsive
+
+// TODO - Host images on aws somewhere, change multer code to whatever service you use to store images, change image url  on index.ejs

@@ -2,12 +2,12 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../auth/authController')
-const validators = require('../auth/validators');
+const validateUser = require('../auth/validators')
 const passport = require("../auth/passportConfig"); 
 
 
 router.get('/sign-up', authController.getSignUp); // Renders sign up form
-router.post('/sign-up', authController.signUpPost);  // submit signup form data
+router.post('/sign-up', validateUser, authController.signUpPost);  // submit signup form data
 
 router.get('/log-in', authController.getLogIn); // Renders sign in form
 

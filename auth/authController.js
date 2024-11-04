@@ -1,5 +1,6 @@
 const db = require('../db/queries');
 const bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 // Function to render signup form
 async function getSignUp(req, res) {
@@ -14,6 +15,18 @@ async function getSignUp(req, res) {
 
 // Function to add user to database
 async function signUpPost(req, res, next) {
+
+  const errors = validationResult(req);
+  
+
+  if (!errors.isEmpty()) {
+    // Return validation errors to the user
+    return res.status(400).render('signup_form', { 
+      errors: errors.array() 
+    });
+  }
+
+
   try {
     const username = req.body.username;   // get username data from form
     const password = req.body.password;   // get password from from form
