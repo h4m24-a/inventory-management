@@ -218,22 +218,6 @@ async function itemsByCategory(categoryId) {    // dynamically returning items o
 
 
 
-
-//! Extra queries //
-
-// Search for item
-
-
-
-
-// Sorting items
-
-
-
-// Filtering items
-
-
-
 // Get name of catagories for dropdown.
 async function getNameOfCategories() {
   try {
@@ -244,6 +228,61 @@ async function getNameOfCategories() {
     throw error
   }
 }
+
+
+
+
+
+
+
+
+//! Auth Routes //
+
+// Add username & password to database
+async function insertUser(username, password) {
+  try {
+    await pool.query("INSERT INTO users (username, password) VALUES ($1, $2)", [username, password,]);
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error;
+  }
+}
+
+
+
+
+
+// Find user using their username
+async function findUserByUsername(username) {
+  try {
+    const { rows } = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+    return rows[0];
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+}
+
+
+
+
+
+
+// Get user by id
+async function selectUserById(id) {
+  try {
+    const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
+    return rows[0];
+  } catch (error) {
+    console.error('An error occurred during the query', error);
+    throw error
+  }
+}
+
+
+
+
+
 
 module.exports = {
   getAllCategories,
@@ -259,5 +298,8 @@ module.exports = {
   insertItem,
   updateItem,
   deleteItem,
-  updateCategoryWithImage
+  updateCategoryWithImage,
+  insertUser,
+  findUserByUsername,
+  selectUserById
 }
