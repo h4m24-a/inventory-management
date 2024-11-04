@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Log In</title>
+</head>
+<body style="background-color: ghostwhite;">
+  <%- include("partials/errors.ejs") %>
+   
+    <div class="login-container">
+      <img class="logo" src="/images/logo/logo1.png" alt="logo">
+      <h1>Log In</h1>
+    <p class="login-subtitle">Welcome Back!</p>
+      <form action="/auth/log-in" method="POST">
+        <label for="username">Username</label> 
+        <input id="username" name="username" placeholder="Username" type="text" />
+        <label for="password">Password</label>
+        <input id="password" name="password" placeholder="Password" type="password" />
+        <button>Log In</button>
+      </form>
+
+      <div class="sign-up-button">
+        <p class="sign-up-account">
+          Don't have an account? 
+          <a class="span-sign-up" href="/auth/sign-up" id="spanbtn">Sign-up</a>
+        </p>
+      </div>
+    </div>
+     
+</body>
+</html>
