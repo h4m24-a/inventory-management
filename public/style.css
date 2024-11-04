@@ -23,17 +23,17 @@
   padding-top: 10px; /* Adjust padding as needed */
 }
 
-.sidebar a {
+.sidebar a{
   text-decoration: none;
   display: flex;
   padding: 18px;
   color: white;
   font-size: 20px;
-  justify-content: flex-start;
+  justify-content: start;
   align-items: center;
   transition: margin 0.4s;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
   border-radius: 6px;
 }
 
@@ -77,6 +77,7 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   font-size: 30px;
   font-weight: 600;
+  margin-top: 8px
 }
 
 .sub-title {
@@ -618,6 +619,185 @@ nav ul {
   margin: 0; 
   padding: 0; 
 }
+
+
+
+
+
+
+/* Sign up and Log in */
+
+.login-container, .signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  max-width: 23%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  padding: 50px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 10px;
+  z-index: 99;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.login-container h1, .signup-container h1 {
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  margin-bottom: 2rem;
+  opacity: 0.5;
+  font-size: 24px;
+}
+
+
+.login-container button, .signup-container button {
+  margin-top: 2rem;
+  background-color: #0088ff;
+  border: none;
+  cursor: pointer;
+  padding: 12px 12px;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.login-container button:hover, .signup-container button:hover {
+  background-color: rgb(31, 117, 230);
+  transition: all ease 1.2s;
+}
+
+
+.login-container input, .signup-container input {
+  padding: 10px;
+  margin-top: 12px;
+  color: black;
+  background-color: white;
+}
+
+
+.sign-up-button {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.sign-up-account {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: gray;
+}
+
+
+.span-sign-up {
+  color: #0088ff;
+  cursor: pointer;
+}
+
+.logo {
+  width: 150px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  height: auto;
+}
+
+
+
+
+
+
+
+/* Auth Modals */
+.profile {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  height: auto;
+  gap: 12px;
+  justify-content: center;
+  align-items: end;
+}
+
+.profile-modal {
+  display: none;
+  z-index: 99;
+  position: fixed;
+  background-color: #fffffc;
+  width: 280px;
+  height: 200px;
+  max-height: 100%;
+  right: 25px;
+  top: 50px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.profile-modal.open {
+  display: block;
+}
+
+.log-out-button{
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  padding-inline: 15px;
+}
+
+.log-out-button:hover {
+  color: gray;
+}
+
+
+.username-modal {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  font-weight: 600;
+}
+
+.line {
+  border-bottom: 0.5px solid #636269;
+  opacity: 0.7;
+  border-width: thin;
+  width: 90%;
+  margin: 8px auto;
+  margin-bottom: 12px;
+}
+
+.current-user{
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  border-radius: 6px;
+}
+
+.current-user i, .log-out-button i {
+  margin-right: 9px;
+  cursor: pointer;
+}
+
+
+
+
+
 
 
 
