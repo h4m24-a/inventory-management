@@ -3,13 +3,35 @@ const nav = document.querySelector('.sidebar')
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const arrow = document.querySelector('.fa-solid.fa-angle-down');
+  const downArrow = document.querySelector('.fa-solid.fa-angle-down');
+  const upArrow = document.querySelector('.fa-solid.fa-angle-up')
   const modal = document.querySelector('.profile-modal');
   
-    arrow.addEventListener('click', function (e) {
+  downArrow.addEventListener('click', function (e) {
       e.preventDefault(); // Prevent default behavior if necessary
       modal.classList.toggle('open'); // Toggle 'open' class on logout button
+      if (modal.classList.contains('open')) {
+        downArrow.style.display = 'none';
+        upArrow.style.display = 'inline-flex'; // Show upArrow when modal is open
+      } else {
+        downArrow.style.display = 'block'; // Show downArrow when modal is closed
+        upArrow.style.display = 'none'; // Hide upArrow when modal is closed
+      }
     });
+
+    upArrow.addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent default behavior if necessary
+      modal.classList.toggle('open'); // Toggle 'open' class on logout button
+      if (modal.classList.contains('open')) {
+        downArrow.style.display = 'none';
+        upArrow.style.display = 'inline-flex'; // Show upArrow when modal is open
+      } else {
+        downArrow.style.display = 'inline-flex'; // Show downArrow when modal is closed
+        upArrow.style.display = 'none'; // Hide upArrow when modal is closed
+      }
+    });
+
+    
   
 });
 

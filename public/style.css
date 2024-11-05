@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
@@ -70,13 +70,15 @@
 
 
 .title {
-  font-family: 'Poppins', system-ui, -apple-system;
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 700;
   text-align: center;
   background-color: white;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   font-size: 30px;
-  font-weight: 600;
   margin-top: 8px
 }
 
@@ -654,6 +656,7 @@ nav ul {
   margin-bottom: 2rem;
   opacity: 0.5;
   font-size: 24px;
+  text-align: center;
 }
 
 
@@ -754,9 +757,11 @@ nav ul {
   text-decoration: none;
   color: black;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   font-size: 15px;
-  padding-inline: 15px;
+  padding-inline: 12px;
 }
 
 .log-out-button:hover {
@@ -765,7 +770,9 @@ nav ul {
 
 
 .username-modal {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   text-align: center;
   font-size: 18px;
   padding: 20px;
@@ -774,7 +781,7 @@ nav ul {
 
 .line {
   border-bottom: 0.5px solid #636269;
-  opacity: 0.7;
+  opacity: 0.3;
   border-width: thin;
   width: 90%;
   margin: 8px auto;
@@ -785,7 +792,9 @@ nav ul {
   text-decoration: none;
   color: black;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   border-radius: 6px;
 }
 
@@ -802,29 +811,40 @@ nav ul {
 }
 
 
-
+.profile i:nth-child(2) {
+  display: none;
+}
 /* Mobile Responsive */
 
-@media (max-width: 1500px) {
+@media screen and (max-width: 1500px) {
   .form-container {
     width: 100%; 
   }
+
+
+  .login-container, .signup-container {
+    max-width: 100%;
+  }
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .form-container {
     width: 100%; 
-    
   }
 
   .form-btns {
     flex-direction: column;
   }
+
+  .login-container, .signup-container {
+    max-width: 100%;
+  }
 }
 
 
 
-@media (max-width: 800px) {
+
+@media screen and (max-width: 800px) {
   .form-container {
     width: 100%;  
   }
@@ -883,10 +903,13 @@ nav ul {
     margin-top: 30px;
   }
   
+  .login-container, .signup-container {
+    max-width: 100%;
+  }
 }
 
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .items-container {
     font-size: 10px;
   }
@@ -896,10 +919,14 @@ nav ul {
     align-items: center;
     margin: 3px;
   }
+
+  .login-container, .signup-container {
+    width: 100%;
+  }
 }
 
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .form-container {
     width: 100%; /* Adjust for mobile devices */
     padding: 20px; /* Reduce padding for smaller screens */
@@ -916,6 +943,10 @@ nav ul {
 
   .items-container {
     font-size: 9px;
+  }
+
+  .login-container {
+    width: 90%;
   }
 }
 

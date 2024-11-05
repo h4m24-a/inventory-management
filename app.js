@@ -76,8 +76,8 @@ app.listen(3000, () => {
 
 
 
+// TODO - Host images on aws somewhere, change multer code to whatever service you use to store images, change image url  on index.ejs
+
 // TODO - Add a guest mode?
 
-// TODO - Make Login and Signup page mobile responsive
 
-// TODO - Host images on aws somewhere, change multer code to whatever service you use to store images, change image url  on index.ejs
