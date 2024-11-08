@@ -4,6 +4,7 @@ const validateItem = [
   body('itemName')
     .trim()
     .isLength({ min: 1, max: 30 })
+    .matches(/^[a-zA-Z0-9_]+$/) 
     .withMessage('Item name must be between 1 and 30 characters long.')
     .escape(), // Sanitization: Escape special characters
 
@@ -26,11 +27,10 @@ const validateItem = [
 const validateCategory = [
   body('categoryName')
     .trim()
+    .matches(/^[a-zA-Z0-9_]+$/) 
     .isLength({ min: 1, max: 30 })
-    .withMessage('Item name must be between 1 and 30 characters long.')
+    .withMessage('Category name must be between 1 and 30 characters long.')
     .escape()
-
-  
 ];
 
-module.exports = validateItem, validateCategory
+module.exports = { validateItem, validateCategory };
