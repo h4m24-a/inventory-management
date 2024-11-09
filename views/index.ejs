@@ -30,7 +30,9 @@
               <p><%= category.name %></p>
               <p class="sneaker-count">Number of Sneakers: <%= category.sneaker_count %></p>
               <a href="/categories/<%= category.id %>/items">
-                <img class="category-image" src="/images/categories/<%= category.image_filename %>"  alt="<%= category.name %>"> </a>
+                <img class="category-image" src="<%= category.image_filename %>" alt="<%= category.name %>">
+
+              </a>
                 
                 <div class="category-button">
                   <form action="categories/delete/<%= category.id %>" method="POST">
