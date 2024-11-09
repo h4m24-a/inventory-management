@@ -179,7 +179,7 @@ async function updateItem(name, price, size, category_id, id) {
 
 
 
-// Delete item from a category
+// Delete item
 async function deleteItem(id) {
   try {
     await pool.query('DELETE FROM items WHERE id = $1', [id]);
@@ -192,6 +192,32 @@ async function deleteItem(id) {
 
 
 
+// Delete item from category    - Used when deleting a category
+async function deleteItemFromCategory(category_id) {    // deletes all items associated with the category
+  try {
+    await pool.query('DELETE FROM items WHERE category_id = $1', [category_id]);
+  } catch (error) {
+    console.error('An error occurred during the query');
+    throw error;
+  }
+}
+
+
+
+// Delete item from category    - Used when deleting an item after selecting a cateogry to view all its items.
+async function deleteItemInCategory(categoryId, itemId) {  
+  try {
+    await pool.query('DELETE FROM items WHERE category_id = $1 AND id = $2', [categoryId, itemId]);
+  } catch (error) {
+    console.error('An error occurred during the query');
+    throw error;
+  }
+}
+
+
+
+
+
 
 
 
@@ -200,7 +226,7 @@ async function deleteItem(id) {
 async function itemsByCategory(categoryId) {    // dynamically returning items of category using id extracted from url when selecting a category.
   try {
     const { rows } = await pool.query(`
-                                        SELECT items.id, items.name, items.price, items.size, categories.name AS category_name
+                                        SELECT items.id, items.name, items.price, items.size, categories.name AS category_name, categories.id AS category_id
                                         FROM items
                                         JOIN categories ON items.category_id = categories.id
                                         WHERE categories.id = $1
@@ -290,6 +316,8 @@ module.exports = {
   selectCategory,
   updateCategory,
   deleteCategory,
+  deleteItemFromCategory,
+  deleteItemInCategory,
   getAllItems,
   selectItem,
   itemsByCategory,

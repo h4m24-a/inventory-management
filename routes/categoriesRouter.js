@@ -57,6 +57,8 @@ router.post('/delete/:id', categoriesController.deleteCategoryPost )            
 
 router.get('/:id/items', categoriesController.ItemsByCategoriesGet);                                              // displays items by categories
 
+router.post('/:id/items/delete/:itemId', categoriesController.deleteItemsInCategoryPost)  // Delete items in a category  
+
 
 
 
