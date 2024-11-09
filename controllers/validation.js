@@ -4,7 +4,6 @@ const validateItem = [
   body('itemName')
     .trim()
     .isLength({ min: 1, max: 30 })
-    .matches(/^[a-zA-Z0-9_]+$/) 
     .withMessage('Item name must be between 1 and 30 characters long.')
     .escape(), // Sanitization: Escape special characters
 
