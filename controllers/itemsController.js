@@ -64,7 +64,7 @@ async function createItemPost(req, res) {
   
   if (!errors.isEmpty()) {
     return res.render('items_form', {
-      errors: errors,
+      errors: errors.array(),
       categories: nameOfCategories, // Pass your categories here
       ...req.body
     });
