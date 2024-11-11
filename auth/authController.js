@@ -1,6 +1,7 @@
 const db = require('../db/queries');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const flash = require('connect-flash');
 
 // Function to render signup form
 async function getSignUp(req, res) {
@@ -53,7 +54,7 @@ async function signUpPost(req, res, next) {
 // Function to render login page
 async function getLogIn(req, res) {
   try {
-    res.render('login_form');
+    res.render('login_form', { message: req.flash('error') });
   } catch (error) {
     console.error('Error displaying log in form', error);
     res.status(500).send('Server Error');

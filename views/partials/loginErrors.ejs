@@ -1,0 +1,7 @@
+<% if (message && message.length > 0) { %>
+  <ul class="error-message">
+    <% message.forEach(function(message) { %>
+      <p style="padding-top: 4px; color: red; font-size: 14px; text-align: left;"><%= message %></p>
+    <% }); %>
+  </ul>
+<% } %>

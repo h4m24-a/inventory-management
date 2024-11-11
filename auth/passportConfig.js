@@ -26,7 +26,7 @@ passport.use(
       return done(null, user);
 
     } catch (error) {
-      return done(error);
+      return done(error, null, { message: 'Email or password incorrect' })
     }
   })
 );

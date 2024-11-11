@@ -14,7 +14,10 @@ router.get('/log-in', authController.getLogIn); // Renders sign in form
 
 router.post('/log-in', passport.authenticate('local', {   // when user submits a log in form, this route is triggered to process login attempt
   successRedirect: '/',               // passport.authenticate() is a middleware function provided by Passport.js to handle the authentication process.
-  failureRedirect: '/log-in'    // "local" specifies the strategy being used for authentication.
+  failureRedirect: '/log-in',   // "local" specifies the strategy being used for authentication.
+  badRequestMessage: 'Enter username & password',
+  failureMessage: 'Incorrect username or password',
+  failureFlash: true
 }))
 
 

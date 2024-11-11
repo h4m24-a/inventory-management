@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 let path = require('path');
 const session = require("express-session");
 const passport = require("passport");
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -31,10 +32,14 @@ app.use(passport.initialize());
 app.use(passport.session()); // integrates Passport.js with the session, enabling persistent login sessions where users remain authenticated across requests after logging in.
 
 
+app.use(flash()); // Initialize connect-flash
+
+
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;    // currentUser is now available in every .ejs file
   next();
 });
+
 
 
 // Global route protection: redirect to login page if not authenticated
