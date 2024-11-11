@@ -10,6 +10,7 @@ Inventory Management app
 - HTML
 - CSS
 - EJS
+- AWS
 
 
 
@@ -22,6 +23,7 @@ Inventory Management app
 - Validation and Sanitization for form inputs
 - Mobile Responsive
 - Used PostgreSQL for efficient data storage and retrieval in the sneaker inventory app.
+- Set up an AWS S3 bucket to store images.
 
 
 
