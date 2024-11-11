@@ -76,8 +76,9 @@ async function updateCategoryPost(req, res) {
     const categoryId = req.params.id;
     const id = parseInt(categoryId, 10);
     const categoryName = req.body.categoryName;
+    const image = req.body.categoryImage
     
-    const categoryImage = req.file ? req.file.filename : 'https://inventory-app-images.s3.eu-west-2.amazonaws.com/categories/default.jpg';  // Only update image if a new one is uploaded
+    const categoryImage = req.file ? req.file.location : image;  // Only update image if a new one is uploaded
 
 
     if (categoryImage) {

@@ -12,9 +12,9 @@
      <div class="container">
        <h1 class="sub-title">Add new Category</h1>
        <div class="form-container">
-         <form class="form" method="POST" action="/categories/new">
+         <form class="form" method="POST" enctype="multipart/form-data" action="/categories/new">
            <label class="input-group"  for="categoryName">Name</label>
-           <input id="categoryName" type="text" name="categoryName" maxlength="20" required />
+           <input id="categoryName" type="text" name="categoryName" minlength="1" maxlength="20" required />
 
            <label class="input-group" for="categoryImage">Category Image</label>
            <input id="categoryImage" type="file" name="categoryImage" accept="image/*"/>

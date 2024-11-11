@@ -26,8 +26,6 @@ const validateItem = [
 const validateCategory = [
   body('categoryName')
     .trim()
-    .isLength({ min: 1, max: 30 })
-    .withMessage('Category name must be between 1 and 30 characters long.')
     .escape()
 ];
 
