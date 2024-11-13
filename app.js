@@ -74,8 +74,8 @@ app.use('/items', itemsRouter);
 app.use('/auth', authRouter);
 
 
-app.listen(3000, () => {
-  console.log(`Server running on 3000 `)
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT} `)
 })
 
 

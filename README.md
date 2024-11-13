@@ -2,7 +2,7 @@
 Inventory Management app
 
 
-## View Project :
+## View Project : https://inventory-management-production-cbcf.up.railway.app/
 
 - Express.js
 - JavaScript
