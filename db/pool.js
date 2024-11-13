@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 module.exports = new Pool({ 
   database_public_url:process.env.DATABASE_PUBLIC_URL,
