@@ -368,7 +368,9 @@
   text-decoration: none;
   font-size: 14px;
   text-align: center;
-  width: 80px;
+  max-width: 100%;
+  margin-bottom: 10px;
+  width: 100%;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
@@ -388,7 +390,8 @@
   font-family: 'Rubik', sans-serif;
   text-decoration: none;
   font-size: 14px;
-  width: 80px;
+  max-width: 100%;
+  width: 100%;
   text-align: center;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -404,6 +407,7 @@
 
 .category-button {
   display: flex;
+  max-width: 100%;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -815,6 +819,8 @@ nav ul {
 .profile i:nth-child(2) {
   display: none;
 }
+
+
 /* Mobile Responsive */
 
 @media screen and (max-width: 1500px) {
@@ -852,7 +858,7 @@ nav ul {
 
 
   .title {
-    font-size: 20px;
+    font-size: 24px;
   }
 
 
@@ -923,6 +929,10 @@ nav ul {
 
   .login-container, .signup-container {
     width: 100%;
+  }
+
+  .title {
+  font-size: 14px;
   }
 }
 
