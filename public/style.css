@@ -16,7 +16,7 @@
 }
 
 .sidebar {
-  background-color: #141a29;
+  background-color: #161819;
   width: 310px;
   height: auto;
   min-height: 100vh;
@@ -34,7 +34,7 @@
   transition: margin 0.4s;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .sidebar a i {
@@ -47,7 +47,7 @@
   font-weight: 800;
   font-family: 'Rubik', sans-serif;
   text-transform: lowercase;
-  color: ghostwhite;
+  color: white;
 }
 
 
@@ -56,38 +56,33 @@
 }
 
 
-.content :hover {
-  background-color: #33353e;
-  color: #fff;
+.sidebar a:hover {
+  color: #007bff;
 }
 
-.h_line {
-  border-bottom: 3px solid rgb(80, 80, 78);
-  width: 310px;
-
-  text-align: center;
-}
 
 
 .title {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
+  border-radius: 15px;
   text-align: center;
-  background-color: white;
+  color: #165df7;
+  background-color: #E5EDFE;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  font-size: 30px;
+  font-size: 26px;
   margin-top: 8px
 }
 
 .sub-title {
-  font-family: 'Poppins', system-ui, -apple-system;
+  font-family: 'Poppins', system-ui;
   text-align: center;
   margin-top: 1rem;
   font-size: 25px;
-  opacity: 0.5;
+  opacity: 0.3;
   font-weight: 500;
 }
 
@@ -121,10 +116,10 @@
   align-items: center;
   background-color: white;
   max-width: 100%;
-  width: 90%;
+  width: 93%;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .category-card p {
@@ -134,17 +129,18 @@
   flex-direction: row;
   align-items: start;
   text-align: center;
-  font-family: 'Rubik', system-ui, -apple-system;
+  font-family: 'Rubik', system-ui;
 }
 
 .category-card :nth-child(1) {
   font-weight: bold;
   margin-bottom: 7px;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .sneaker-count {
   opacity: 0.7;
+  font-size: 16px;
 }
 
 
@@ -301,7 +297,6 @@
 
 .item-icons i:hover {
   color: #f44336; /* Change color on hover for a modern feel */
-  transform: scale(1.2); /* Slight enlargement on hover */
 }
 
 
@@ -360,10 +355,10 @@
 
 /* Category buttons */
 .delete-btn{
-  background-color: #f53336;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  border: solid 1px #007bff8e;
+  padding: 8px ;
+  border-radius: 5px;
+  cursor: pointer;
   font-family: 'Rubik', sans-serif;
   text-decoration: none;
   font-size: 14px;
@@ -371,22 +366,21 @@
   max-width: 100%;
   margin-bottom: 10px;
   width: 100%;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  color: #007bff;
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
 .delete-btn:hover {
-  background-color: #f72718; /* Darker green on hover */
   transform: translateY(-3px); /* Slight lift on hover */
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
 }
 
 .update-btn{
-  background-color: #2ac95f;
+  background-color: #007bff;
+  cursor: pointer;
   border: none;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 5px;
   font-family: 'Rubik', sans-serif;
   text-decoration: none;
   font-size: 14px;
@@ -394,23 +388,21 @@
   width: 100%;
   text-align: center;
   color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
 .update-btn:hover {
-  background-color: #29d319; /* Darker green on hover */
+  background-color: #0269d8; /* Darker green on hover */
   transform: translateY(-3px); /* Slight lift on hover */
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
 }
 
 
 .category-button {
-  display: flex;
-  max-width: 100%;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   justify-content: center;
+  align-items: center;
+  max-width: 100%;
 }
 
 
@@ -688,9 +680,13 @@ nav ul {
 }
 
 
+ #username {
+  margin-bottom: 30px;
+}
+
 .login-container input, .signup-container input {
   padding: 10px;
-  margin-top: 12px;
+  margin-top: 2px;
   color: black;
   background-color: white;
 }
@@ -891,13 +887,13 @@ nav ul {
     position: absolute;
     color: black;
     cursor: pointer;
-    font-size: 40px;
+    font-size: 26px;
     display: block;
     padding: 10px;
   }
 
   .title {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
   }
  

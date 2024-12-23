@@ -23,12 +23,12 @@
       </div>
        <p class="title">Track, manage, and grow your sneaker collection effortlessly</p>
        
-        <p class="sub-title">Select  Category</p>
+        <p class="sub-title">All Categories</p>
            <div class="categories-container">
            <% categories.forEach(category => { %>
             <div class="category-card">
               <p><%= category.name %></p>
-              <p class="sneaker-count">Number of Sneakers: <%= category.sneaker_count %></p>
+              <p class="sneaker-count"><%= category.sneaker_count %> Sneakers</p>
               <a href="/categories/<%= category.id %>/items">
                 <img class="category-image" src="<%= category.image_filename %>" alt="<%= category.name %>">
 
