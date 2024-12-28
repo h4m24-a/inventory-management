@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
@@ -161,7 +161,7 @@
 
 
 .title-items {
-  font-family: 'Poppins', system-ui, -apple-system;
+  font-family: 'Poppins', sans-serif, Arial, Helvetica;
   text-align: left;
   background-color: ghostwhite;
   margin: 20px;
@@ -169,54 +169,44 @@
 }
 
 .items-container {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
+  width: 100%;
+  border-collapse: collapse;
   background-color: white;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-.items-header {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  margin: 15px; 
-}
-
-.items-header p {
-  flex: 1; /* Distribute space evenly */
+.items-header th {
+  background-color: #f1f5f6;
+  padding: 12px;
+  border-bottom: solid 3px #ecf0f1;
   text-align: center;
-  margin: 0;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-family: "Poppins", serif;
   font-weight: 600;
-  opacity: 0.4;
-  font-family: "Poppins", sans-serif;
+  font-style: normal;
 }
 
-.items-card {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  padding: 10px;
-  margin: 5px 0; /* Vertical margin between cards */
-  width: 100%; /* Full width of container */
-  align-items: start;
-  box-sizing: border-box; /* Include padding and border in total width and height */
+.items-card td {
+  padding: 8px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  border-bottom: 1px solid #ecf0f1;
 }
 
-.items-card p {
-  flex: 1; /* Distribute space evenly */
-  font-family: "Poppins", sans-serif;
-  text-align: center; /* Center align content text */
-  margin: 0; /* Remove default margin */
-}
 
 .category-name {
-  background-color: #f1e0e0; /* Lighter red background */
-  border: 2px solid rgb(100, 100, 100); /* Red border */
-  color: rgb(116, 115, 115); /* Red text color */
-  border-radius: 15px; /* Smaller border-radius for a more compact pill */
-  text-align: center; /* Center text inside the pill */
-  display: flex; /* Ensures the element adjusts to its content */
-  font-family: "Poppins", sans-serif; /* Optional: text font */
+  background-color: #d3f5e4;
+  color: #568471; 
+  border-radius: 12px; 
+  text-align: center;
+  display: flex;
+  max-width: 100%;
+  width: 70%;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif; 
   padding: 2px;
   justify-content: center;
   align-items: center;
@@ -255,7 +245,7 @@
   color: white;
   background: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: #4CAF50;
+  background-color: #007bff;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 18px;
@@ -264,26 +254,26 @@
 }
 
 .item-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #0088ff; 
   transform: translateY(-3px); /* Slight lift on hover */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px; /* More pronounced shadow */
 }
 
 .item-button:active {
-  background-color: #388E3C; /* Even darker green when active */
-  transform: translateY(1px); /* Button appears pressed */
+  background-color: #0088ff; 
+  transform: translateY(1px);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; /* Reduced shadow */
 }
 
 .item-button:focus {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.5); /* Focus ring in lighter green */
+  box-shadow: 0 0 0 4px rgba(76, 116, 175, 0.5); /* Focus ring in lighter green */
 }
 
 
 
 .item-icons {
-  display: inline-flex;
+  display: flex;
   align-items: center; /* Align icons and text */
   gap: 15px; /* Space between buttons/icons */
 }
@@ -903,7 +893,7 @@ nav ul {
 
 
   .item-buttons-container {
-    margin-top: 30px;
+    margin-top: 0px;
   }
   
   .login-container, .signup-container {
@@ -918,9 +908,8 @@ nav ul {
   }
 
   .item-buttons-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 3px;
   }
 
   .login-container, .signup-container {
@@ -954,6 +943,15 @@ nav ul {
 
   .login-container {
     width: 90%;
+  }
+
+  .item-buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-items {
+    margin: 1px;
   }
 }
 
