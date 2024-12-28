@@ -191,6 +191,7 @@
 
 .items-card td {
   padding: 8px;
+  margin-bottom: 8px;
   text-align: center;
   font-family: "Poppins", sans-serif;
   border-bottom: 1px solid #ecf0f1;
